@@ -1,0 +1,243 @@
+
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #0f2744;
+  --muted: #4a6280;
+  --accent: #1a4b8c;
+  --accent-hover: #c9a227;
+  --gold: #c9a227;
+  --gold-soft: #e8d48b;
+  --border: #d5e0ef;
+  --shadow: 0 10px 30px rgba(15, 39, 68, 0.08);
+  --radius: 12px;
+  --max-width: 46rem;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1a2e;
+  --surface: #13253d;
+  --text: #f4f7fb;
+  --muted: #b7c6d8;
+  --accent: #d4af37;
+  --accent-hover: #f0d77a;
+  --gold: #d4af37;
+  --gold-soft: #f0d77a;
+  --border: #2a4464;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  transition: color 0.2s ease, background-size 0.25s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-hover);
+  background-size: 100% 2px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.brand {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  font-family: system-ui, sans-serif;
+  font-size: 0.95rem;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--gold);
+  color: var(--accent);
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+}
+
+.intro {
+  margin: 0 0 2.5rem;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.4rem;
+  margin-bottom: 1.25rem;
+  border-top: 3px solid var(--gold);
+}
+
+h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.35rem;
+  color: var(--accent);
+}
+
+/* Larger, more readable About section text */
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.skills-list,
+.projects-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.projects-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.projects-list li + li {
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+
+.projects-list p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    justify-content: space-between;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
+  }
+
+  .nav-list {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  main {
+    padding: 1.5rem 0.85rem 3rem;
+  }
+
+  section {
+    padding: 1.2rem 1rem;
+  }
+
+  #about p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+}

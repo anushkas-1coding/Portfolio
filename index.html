@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Anushka Sharma | Personal Portfolio</title>
+  <meta name="description" content="Anushka Sharma's portfolio showcasing web development, AI interests, projects, chatbot and weather app." />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="brand">Anushka Sharma</p>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#weather">Weather App</a></li>
+          <li><a href="#chatbot">AI Chatbot</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="theme-toggle"
+        id="theme-toggle" aria-pressed="false">
+        Dark mode
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Anushka Sharma</h1>
+    <p class="intro">
+      B.Tech Student &amp; Aspiring Web Developer · Jaipur, India
+    </p>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Anushka Sharma, a second-year B.Tech student
+        interested in web development and artificial intelligence.
+        I enjoy learning new technologies, solving problems, and
+        building projects that improve my technical skills.
+      </p>
+      <p>
+        My current focus is strengthening my HTML, CSS and
+        JavaScript fundamentals while exploring AI.
+      </p>
+      <p>
+        Contact:
+        <a href="mailto:anushkaa.1211@gmail.com">
+          anushkaa.1211@gmail.com
+        </a>
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML — Learning and practising</li>
+        <li>CSS — Learning and practising</li>
+        <li>JavaScript — Currently learning</li>
+        <li>Web Development — Beginner</li>
+        <li>Artificial Intelligence — Exploring</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects-list">
+        
+
+        <li>
+          <h3>
+            <a href="https://github.com/anushkas-1coding/reading-list-app-anushka"
+               target="_blank" rel="noopener noreferrer">
+              Reading List App
+            </a>
+          </h3>
+          <p>An application for managing a reading list.</p>
+        </li>
+
+        <li>
+          <h3>
+            <a href="https://github.com/anushkas-1coding/fixing-buggy-python-script"
+               target="_blank" rel="noopener noreferrer">
+              Fixing Buggy Python Script
+            </a>
+          </h3>
+          <p>A Python script that was buggy and has been fixed.</p>
+        </li>
+
+        <li>
+          <h3>
+            <a href="https://github.com/anushkas-1coding/python-program-collection"
+               target="_blank" rel="noopener noreferrer">
+              Python Program Collection
+            </a>
+          </h3>
+          <p>A collection of Python programs.</p>
+        </li>
+
+        <li>
+          <h3>
+            <a href="https://github.com/anushkas-1coding/messy-python-code-improvement"
+               target="_blank" rel="noopener noreferrer">
+              Messy Python Code Improvement
+            </a>
+          </h3>
+          <p>Work on improving messy Python code.</p>
+        </li>
+
+        <li>
+          <h3>
+            <a href="https://github.com/anushkas-1coding/Quiz"
+               target="_blank" rel="noopener noreferrer">
+              Quiz App
+            </a>
+          </h3>
+          <p>A quiz app.</p>
+        </li>
+
+        
+      </ul>
+    </section>
+
+    <!-- WEATHER APP -->
+    <section id="weather" aria-labelledby="weather-heading">
+      <h2 id="weather-heading">Weather App</h2>
+      <p>Find the current weather in any supported city.</p>
+
+      <form id="weather-form">
+        <label for="weather-city">Enter city name</label>
+        <input
+          id="weather-city"
+          type="text"
+          placeholder="e.g. Jaipur"
+          required
+        />
+        <button type="submit">Check Weather</button>
+      </form>
+
+      <p id="weather-status" role="status" aria-live="polite"></p>
+      <div id="weather-result" aria-live="polite"></div>
+    </section>
+
+    <!-- AI CHATBOT -->
+    <section id="chatbot" aria-labelledby="chatbot-heading">
+      <h2 id="chatbot-heading">AI Chatbot</h2>
+      <p>Ask a question and interact with my portfolio chatbot.</p>
+
+      <div id="chat-messages" aria-live="polite"
+           aria-label="Chat conversation"></div>
+
+      <form id="chat-form">
+        <label for="chat-input">Your message</label>
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Type your message..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit" id="chat-button">Send</button>
+      </form>
+
+      <p id="chat-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="year"></span> Anushka Sharma.
+      All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Existing portfolio JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- Chatbot configuration and functionality -->
+  <script src="config.js"></script>
+  <script src="chatbot.js"></script>
+
+  <!-- Weather app functionality -->
+  <script>
+    const weatherForm = document.getElementById("weather-form");
+    const weatherCity = document.getElementById("weather-city");
+    const weatherStatus = document.getElementById("weather-status");
+    const weatherResult = document.getElementById("weather-result");
+
+    weatherForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const city = weatherCity.value.trim();
+      if (!city) return;
+
+      weatherStatus.textContent = "Loading weather...";
+      weatherResult.replaceChildren();
+
+      try {
+        const geoResponse = await fetch(
+          "https://geocoding-api.open-meteo.com/v1/search?name=" +
+          encodeURIComponent(city) + "&count=1&language=en&format=json"
+        );
+
+        if (!geoResponse.ok) throw new Error("Weather service unavailable.");
+
+        const geoData = await geoResponse.json();
+        const place = geoData.results && geoData.results[0];
+
+        if (!place) throw new Error("City not found. Please try another name.");
+
+        const weatherResponse = await fetch(
+          "https://api.open-meteo.com/v1/forecast?latitude=" +
+          place.latitude + "&longitude=" + place.longitude +
+          "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m"
+        );
+
+        if (!weatherResponse.ok) {
+          throw new Error("Could not retrieve weather.");
+        }
+
+        const data = await weatherResponse.json();
+        const current = data.current;
+
+        const descriptions = {
+          0: "Clear sky",
+          1: "Mainly clear",
+          2: "Partly cloudy",
+          3: "Overcast",
+          45: "Fog",
+          48: "Depositing rime fog",
+          51: "Light drizzle",
+          53: "Moderate drizzle",
+          55: "Dense drizzle",
+          61: "Slight rain",
+          63: "Moderate rain",
+          65: "Heavy rain",
+          71: "Slight snow",
+          73: "Moderate snow",
+          75: "Heavy snow",
+          80: "Rain showers",
+          81: "Moderate rain showers",
+          82: "Heavy rain showers",
+          95: "Thunderstorm"
+        };
+
+        const title = document.createElement("h3");
+        title.textContent = place.name +
+          (place.country ? ", " + place.country : "");
+
+        const details = document.createElement("p");
+        details.textContent =
+          "Temperature: " + current.temperature_2m + "°C";
+
+        const feels = document.createElement("p");
+        feels.textContent =
+          "Feels like: " + current.apparent_temperature + "°C";
+
+        const condition = document.createElement("p");
+        condition.textContent =
+          "Condition: " +
+          (descriptions[current.weather_code] || "Weather information available");
+
+        const humidity = document.createElement("p");
+        humidity.textContent =
+          "Humidity: " + current.relative_humidity_2m + "%";
+
+        const wind = document.createElement("p");
+        wind.textContent =
+          "Wind speed: " + current.wind_speed_10m + " km/h";
+
+        weatherResult.append(
+          title, details, feels, condition, humidity, wind
+        );
+
+        weatherStatus.textContent = "";
+      } catch (error) {
+        weatherStatus.textContent =
+          error.message || "Unable to load weather. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>
